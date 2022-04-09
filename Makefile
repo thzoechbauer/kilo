@@ -11,4 +11,5 @@ clean:
 	rm -f $(TARGET)
 
 $(TARGET): $(TARGET).c
-	$(CC) $^ -o $@ -Wall -Wextra -pedantic -std=c99
+	mkdir -p bin
+	$(CC) $^ -o bin/$@ -Wall -Wextra -pedantic -std=c99
