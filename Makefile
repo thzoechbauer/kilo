@@ -1,15 +1,16 @@
 .PHONY: all run clean
 
+BIN_DIR = bin
 TARGET = kilo
 
-all: $(TARGET)
+all: $(BIN_DIR)/$(TARGET)
 
 run: all
-	./$(TARGET)
+	./$(BIN_DIR)/$(TARGET)
 
 clean:
-	rm -f $(TARGET)
+	rm -f $(BIN_DIR)/$(TARGET)
 
-$(TARGET): $(TARGET).c
-	mkdir -p bin
-	$(CC) $^ -o bin/$@ -Wall -Wextra -pedantic -std=c99
+$(BIN_DIR)/$(TARGET): $(TARGET).c
+	mkdir -p $(BIN_DIR)
+	$(CC) $^ -o $@ -Wall -Wextra -pedantic -std=c99
